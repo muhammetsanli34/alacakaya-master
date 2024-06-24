@@ -1,0 +1,21 @@
+{
+  "cli": {
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "companyName": "ALACAKAYA DIS TICARET VE PAZARLAMA ANONIM SIRKETI",
+        "appleId": "app@alacakaya.com",
+        "ascAppId": "6502294119",
+        "appleTeamId": "D2D8MZ22XJ"
+      }
+    }
+  }
+
+}

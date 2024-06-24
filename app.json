@@ -1,0 +1,77 @@
+{
+  "expo": {
+    "name": "Alacakaya Marble",
+    "slug": "alacakaya",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      },
+      
+      "icon": "./assets/images/icon.png",
+      "config": {
+        "googleMapsApiKey": "AIzaSyD5sD4_03oVBEZzO5xW6ujzZyrhk_keRRo"
+      },
+      "bundleIdentifier": "com.alacakaya",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app needs access to your location to show you where you are on the map.",
+        "NSLocationAlwaysUsageDescription": "This app needs access to your location to show you where you are on the map.",
+        "NSMicrophoneUsageDescription": "This app needs access to your microphone to record video."
+      }
+    },
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD5sD4_03oVBEZzO5xW6ujzZyrhk_keRRo"
+        }
+      },
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.alacakaya",
+      "versionCode": 2,
+      "runtimeVersion": "1.0.0",
+      "permissions": [
+        "android.permission.INTERNET"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4afd1161-2d90-44c7-a25c-3331dd0f70c4"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4afd1161-2d90-44c7-a25c-3331dd0f70c4"
+    }
+  }
+}
