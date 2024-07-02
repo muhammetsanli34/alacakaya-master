@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import Gallery from "react-native-awesome-gallery";
 import Animated, { FadeInUp, FadeOutUp } from "react-native-reanimated";
@@ -26,7 +26,7 @@ export default function GalleryContainer({
 }: GalleryContainerProps) {
   const insets = useSafeAreaInsets();
   return (
-    <View style={[styles.galleryContainer, { paddingTop: insets.top + 5}]}>
+    <View style={[styles.galleryContainer, { paddingTop: insets.top + 5 }]}>
       <Animated.View
         entering={FadeInUp.duration(250)}
         exiting={FadeOutUp.duration(250)}
@@ -65,7 +65,9 @@ export default function GalleryContainer({
               }}
             >
               <Image
-                source={{ uri: images[index] }}
+                source={{
+                  uri: `${process.env.EXPO_PUBLIC_API_URL}/${images[index]}`,
+                }}
                 style={{
                   width: 300,
                   height: 300,

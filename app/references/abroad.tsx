@@ -6,87 +6,22 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Colors from "../../constants/Colors";
 import { router } from "expo-router";
 
 import Header from "../../components/Header";
 import BackButton from "@/components/BackButton";
-
-
-const references = [
-  {
-    title: "Atana Hotel - BAE",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/1.jpg`,
-    link: "atana-hotel",
-  },
-  {
-    title: "Kâbe - Mekke, Suudi Arabistan",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/2.jpg`,
-    link: "kabe-mekke",
-  },
-  {
-    title: "Hotel Galleria - Jeddah",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/3.jpg`,
-    link: "hotel-galleria",
-  },
-  {
-    title: "Intourist Palace Hotel - Gürcistan",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/4.jpg`,
-    link: "intourist-palace-hotel",
-  },
-  {
-    title: "Royal Mediterranean Hotel - China",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/5.jpg`,
-    link: "royal-mediterranean-hotel",
-  },
-  {
-    title: "Atlantis Hotel Dubai - BAE",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/6.jpg`,
-    link: "atlantis-hotel-dubai",
-  },
-  {
-    title: "Pera Palace - İstanbul",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/7.jpg`,
-    link: "pera-palace",
-  },
-  {
-    title: "Cratos Hotel - Cyprus",
-    image: `https://mobil.alacakaya.com/mobil/images/references/abroad/8.jpg`,
-    link: "cratos-hotel",
-  },
-];
+import ReferenceListBase from "@/components/ReferenceListBase";
+import { Reference } from "@/types/types";
+import axios from "axios";
 
 export default function Abroad() {
+  
   return (
     <>
       <Header title="ABROAD" />
-      <View style={styles.container}>
-        <BackButton />
-
-        <FlatList
-          data={references}
-          numColumns={2}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() =>
-                router.push({
-                  pathname: "/references/reference/[name]" as `${string}:${string}`,
-                  params: {
-                    name: item.link,
-                  },
-                })
-              }
-              style={styles.item}
-            >
-              <Image style={styles.itemImage} source={{ uri: item.image }} />
-              <Text style={styles.itemText}>{item.title}</Text>
-            </TouchableOpacity>
-          )}
-          style={{ width: "100%", marginTop: 20 }}
-          keyExtractor={(item) => item.title}
-        />
-      </View>
+      <ReferenceListBase type="1" />
     </>
   );
 }

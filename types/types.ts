@@ -54,3 +54,16 @@ export interface FormType {
 export interface CountdownProps {
   timeInMilliseconds: number;
 }
+
+export interface Reference {
+  id: number;
+  name: string;
+  cover_image: string;
+  type: "1" | "2";
+  gallery: {
+    id: number;
+    image_url: string;
+    reference_id: number;
+    created_at: string;
+  }[];
+}
