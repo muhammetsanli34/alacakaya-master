@@ -8,18 +8,19 @@ import { useEffect, useState } from "react";
 
 export default function ShopPage() {
   const [products, setProducts] = useState<[] | Product[]>([]);
-
   useEffect(() => {
-    axios.get("https://mobil.alacakaya.com/get-all-products").then((res) => {
-      setProducts(res.data);
+    axios
+      .get(`${process.env.EXPO_PUBLIC_API_URL}/get-all-products`)
+      .then((res) => {
+        setProducts(res.data);
 
-      //kayıtlı veri ile gelen veri aynı değilse kaydet
-      getData("products").then((stored) => {
-        if (stored !== res.data) {
-          storeData("products", res.data);
-        }
+        //kayıtlı veri ile gelen veri aynı değilse kaydet
+        getData("products").then((stored) => {
+          if (stored !== res.data) {
+            storeData("products", res.data);
+          }
+        });
       });
-    });
   }, []);
 
   if (!products.length) {
@@ -32,9 +33,11 @@ export default function ShopPage() {
   return (
     <>
       <Header title="SHOP" />
-      <Products page="shop" listProducts={listProducts} headerProduct={headerProduct} />
+      <Products
+        page="shop"
+        listProducts={listProducts}
+        headerProduct={headerProduct}
+      />
     </>
   );
 }
-
-

@@ -16,33 +16,47 @@ interface Props {
   page: "shop" | "products";
 }
 const Category = ({ categories, local, page }: Props) => {
+  const getImagePath = (index) => {
+    if (local[`categoryImage${index + 1}`]) {
+      return `${process.env.EXPO_PUBLIC_API_URL}/mobil/images/category_images/${
+        local[`categoryImage${index + 1}`]
+      }`;
+    } else {
+      return `${process.env.EXPO_PUBLIC_API_URL}/mobil/images/cover_images/${local.coverImage}`;
+    }
+  };
   return (
     <ScrollView style={styles.container}>
-      {categories.map((product) => (
-        <TouchableOpacity
-          onPress={() =>
-            router.push({
-              pathname: `/${page}/alt-products/[id]` as `${string}:${string}`,
-              params: {
-                id: product.id,
-                category: product.slug,
-              },
-            })
-          }
-          key={product.slug}
-          style={styles.item}
-        >
-          <ImageBackground
-            source={{
-              uri: `https://mobil.alacakaya.com/mobil/images/cover_images/${local.coverImage}`,
-            }}
+      {categories.map((product, index) => {
+        return (
+          <TouchableOpacity
+            onPress={() =>
+              router.push({
+                pathname: `/${page}/alt-products/[id]` as `${string}:${string}`,
+                params: {
+                  id: product.id,
+                  category: product.slug,
+                },
+              })
+            }
+            key={product.slug}
             style={styles.item}
-            resizeMode="cover"
           >
-            <Text style={styles.title}>{product.name}</Text>
-          </ImageBackground>
-        </TouchableOpacity>
-      ))}
+            <ImageBackground
+              source={{
+                // uri: `${process.env.EXPO_PUBLIC_API_URL}/mobil/images/category_images/${
+                //   local[`categoryImage${index + 1}`] ? local[`categoryImage${index + 1}`] : local.coverImage
+                // }`,
+                uri: getImagePath(index),
+              }}
+              style={styles.item}
+              resizeMode="cover"
+            >
+              <Text style={styles.title}>{product.name}</Text>
+            </ImageBackground>
+          </TouchableOpacity>
+        );
+      })}
     </ScrollView>
   );
 };
