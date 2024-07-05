@@ -4,7 +4,12 @@
   },
   "build": {
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "channel": "production"
+    },
+    "preview": {
+      "autoIncrement": true,
+      "channel": "preview"
     }
   },
   "submit": {
@@ -17,5 +22,4 @@
       }
     }
   }
-
 }
