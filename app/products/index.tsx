@@ -19,17 +19,21 @@ export default function ProductsPage() {
   const [products, setProducts] = useState<[] | Product[]>([]);
 
   useEffect(() => {
+    console.log("products", products);
     axios
       .get(`${process.env.EXPO_PUBLIC_API_URL}/get-all-products`)
       .then((res) => {
+        console.log("products2", res.data);
         setProducts(res.data);
-
         //kayıtlı veri ile gelen veri aynı değilse kaydet
         getData("products").then((stored) => {
           if (stored !== res.data) {
             storeData("products", res.data);
           }
         });
+      })
+      .catch((err) => {
+        console.log("err", err.message);
       });
   }, []);
 

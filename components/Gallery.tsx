@@ -66,7 +66,7 @@ export default function GalleryContainer({
             >
               <Image
                 source={{
-                  uri: `${process.env.EXPO_PUBLIC_API_URL}/${images[index]}`,
+                  uri: `${images[index]}`,
                 }}
                 style={{
                   width: 300,

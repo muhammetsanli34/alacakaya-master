@@ -5,7 +5,6 @@ export const storeData = async (key: string, value: object) => {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem(key, jsonValue);
   } catch (e) {
-    console.log(e);
     return null;
   }
 };

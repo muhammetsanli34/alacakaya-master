@@ -19,12 +19,10 @@ export default function ReferenceListBase({ type }: { type: "2" | "1" }) {
   const segments = useSegments();
 
   const fetchReferences = async () => {
-    console.log("fetchReferences", process.env.EXPO_PUBLIC_API_URL);
     try {
       const response = await axios.get(
         `${process.env.EXPO_PUBLIC_API_URL}/get-references/${type}`
       );
-      console.log("response.data", response.data);
       setReferences(response.data);
     } catch (error) {
       console.log("error", error);

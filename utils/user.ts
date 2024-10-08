@@ -21,8 +21,6 @@ export const accountDelete = async (userID: string) => {
   );
   const data = await req.data;
 
-  console.log("User delete data", data);
-
   if (data.ok) {
     return {
       ok: true,

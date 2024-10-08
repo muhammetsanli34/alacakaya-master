@@ -38,8 +38,6 @@ export async function addItem(id: string, value: number) {
       count: 1,
     });
   }
-  console.log("items:", data);
-
   storeData("bucket", data);
   return "Product added to bucket.";
 }

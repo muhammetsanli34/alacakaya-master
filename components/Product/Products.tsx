@@ -17,7 +17,6 @@ interface Props {
 }
 
 const Products = ({ listProducts, headerProduct, page }: Props) => {
-  console.log(listProducts[0], "listProducts");
   return (
     <FlatList
       data={listProducts}

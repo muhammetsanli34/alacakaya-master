@@ -38,7 +38,6 @@ export default function Reference() {
       const response = await axios.get(
         `${process.env.EXPO_PUBLIC_API_URL}/get-reference-by-id/${localSearchParams.id}`
       );
-      console.log("response.dataaaa", response.data);
       setReference(response.data);
     } catch (error) {
       console.log("error", error);
